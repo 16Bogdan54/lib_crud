@@ -2,11 +2,11 @@
 
 <h1>Authors</h1>
 
-<div id="authors">
+<div id="authors" class="authors">
   <% @authors.each do |author| %>
     <%= render author %>
     <p>
-      <%= link_to "Show this author", author %>
+      <%= link_to "Show", author %>
     </p>
   <% end %>
 </div>
