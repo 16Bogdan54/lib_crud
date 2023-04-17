@@ -1,25 +1,25 @@
 class UserReccordsController < ApplicationController
   before_action :set_user_reccord, only: %i[ show edit update destroy ]
 
-  # GET /user_reccords or /user_reccords.json
+  # GET /user_records or /user_records.json
   def index
     @user_reccords = UserReccord.all
   end
 
-  # GET /user_reccords/1 or /user_reccords/1.json
+  # GET /user_records/1 or /user_records/1.json
   def show
   end
 
-  # GET /user_reccords/new
+  # GET /user_records/new
   def new
     @user_reccord = UserReccord.new
   end
 
-  # GET /user_reccords/1/edit
+  # GET /user_records/1/edit
   def edit
   end
 
-  # POST /user_reccords or /user_reccords.json
+  # POST /user_records or /user_records.json
   def create
     @user_reccord = UserReccord.new(user_reccord_params)
 
@@ -34,7 +34,7 @@ class UserReccordsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /user_reccords/1 or /user_reccords/1.json
+  # PATCH/PUT /user_records/1 or /user_records/1.json
   def update
     respond_to do |format|
       if @user_reccord.update(user_reccord_params)
@@ -47,7 +47,7 @@ class UserReccordsController < ApplicationController
     end
   end
 
-  # DELETE /user_reccords/1 or /user_reccords/1.json
+  # DELETE /user_records/1 or /user_records/1.json
   def destroy
     @user_reccord.destroy
 

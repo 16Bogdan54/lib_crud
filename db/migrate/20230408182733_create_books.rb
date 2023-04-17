@@ -3,10 +3,9 @@ class CreateBooks < ActiveRecord::Migration[7.0]
     create_table :books do |t|
       t.string :title
       t.text :description
-      t.references :library, null: false, foreign_key: true
-      t.references :author, null: false, foreign_key: true
-      t.references :genre, null: false, foreign_key: true
-
+      t.references :library, foreign_key: true
+      t.references :author, foreign_key: true
+      t.references :genre, foreign_key: true
       t.timestamps
     end
   end
