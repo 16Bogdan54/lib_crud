@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :user_reccord
+  belongs_to :user_record
 
   def self.add
     (1..10).each { |i|

@@ -2,7 +2,7 @@ require "test_helper"
 
 class UserReccordsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user_reccord = user_reccords(:one)
+    @user_record = user_reccords(:one)
   end
 
   test "should get index" do
@@ -15,32 +15,32 @@ class UserReccordsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create user_reccord" do
-    assert_difference("UserReccord.count") do
-      post user_reccords_url, params: { user_reccord: { library_id: @user_reccord.library_id, user_id: @user_reccord.user_id } }
+  test "should create user_record" do
+    assert_difference("UserRecord.count") do
+      post user_reccords_url, params: { user_record: { library_id: @user_record.library_id, user_id: @user_record.user_id } }
     end
 
-    assert_redirected_to user_reccord_url(UserReccord.last)
+    assert_redirected_to user_reccord_url(UserRecord.last)
   end
 
-  test "should show user_reccord" do
-    get user_reccord_url(@user_reccord)
+  test "should show user_record" do
+    get user_reccord_url(@user_record)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_user_reccord_url(@user_reccord)
+    get edit_user_reccord_url(@user_record)
     assert_response :success
   end
 
-  test "should update user_reccord" do
-    patch user_reccord_url(@user_reccord), params: { user_reccord: { library_id: @user_reccord.library_id, user_id: @user_reccord.user_id } }
-    assert_redirected_to user_reccord_url(@user_reccord)
+  test "should update user_record" do
+    patch user_reccord_url(@user_record), params: { user_record: { library_id: @user_record.library_id, user_id: @user_record.user_id } }
+    assert_redirected_to user_reccord_url(@user_record)
   end
 
-  test "should destroy user_reccord" do
-    assert_difference("UserReccord.count", -1) do
-      delete user_reccord_url(@user_reccord)
+  test "should destroy user_record" do
+    assert_difference("UserRecord.count", -1) do
+      delete user_reccord_url(@user_record)
     end
 
     assert_redirected_to user_reccords_url

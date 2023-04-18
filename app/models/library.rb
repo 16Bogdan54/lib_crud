@@ -1,6 +1,6 @@
 class Library < ApplicationRecord
   has_many :books
-  has_many :user_reccords
+  has_many :user_records
 
   def self.add
     (1..10).each { |i|

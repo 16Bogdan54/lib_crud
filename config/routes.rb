@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :user_reccords
+  resources :user_records
   resources :users
   resources :genres
   resources :libraries

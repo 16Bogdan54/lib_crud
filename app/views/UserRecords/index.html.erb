@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>User records</h1>
+
+<div id="user_records" class="grid-container">
+  <% @user_records.each do |user_record| %>
+    <%= render user_record %>
+    <p>
+      <%= link_to "Show", user_record %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New user record", new_user_record_path %>

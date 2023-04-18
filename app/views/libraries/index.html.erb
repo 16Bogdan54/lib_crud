@@ -2,11 +2,11 @@
 
 <h1>Libraries</h1>
 
-<div id="libraries">
+<div id="libraries" class="grid-container">
   <% @libraries.each do |library| %>
     <%= render library %>
     <p>
-      <%= link_to "Show this library", library %>
+      <%= link_to "show", library %>
     </p>
   <% end %>
 </div>
