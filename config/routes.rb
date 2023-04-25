@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  root to: "home#index"
   resources :user_records
   resources :users
   resources :genres
