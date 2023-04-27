@@ -1,6 +1,6 @@
 class UserRecord < ApplicationRecord
   belongs_to :library
-  has_one :user
+  belongs_to :user
 
   def self.add
     (1..10).each { |i|

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :user_record
+  has_one :user_record
 
   def self.add
     (1..10).each { |i|
