@@ -4,8 +4,12 @@ class UserRecordsController < ApplicationController
   # GET /user_records or /user_records.json
   def index
     @user_records = UserRecord.all
-  end
 
+    respond_to do |format|
+      format.html # Render the default HTML template
+      format.json { render json: @user_records } # Render JSON data for API requests
+    end
+  end
   # GET /user_records/1 or /user_records/1.json
   def show
   end
