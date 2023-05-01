@@ -3,7 +3,7 @@ class LibrariesController < ApplicationController
 
   # GET /libraries or /libraries.json
   def index
-    @libraries = Library.all
+    @libraries = Library.page(params[:page] || 1).per(5)
   end
 
   # GET /libraries/1 or /libraries/1.json

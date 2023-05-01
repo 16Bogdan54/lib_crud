@@ -26,4 +26,21 @@
   </tbody>
 </table>
 
+<%= paginate @libraries %>
+
 <%= link_to 'New Library', new_library_path %>
+
+<style>
+    table {
+        height: 200px;
+    }
+
+    .pagination {
+        width: 400px;
+    }
+
+    .pagination span {
+        padding: .4rem;
+    }
+
+</style>
