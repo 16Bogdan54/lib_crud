@@ -2,13 +2,28 @@
 
 <h1>Libraries</h1>
 
-<div id="libraries" class="grid-container">
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Year</th>
+  </tr>
+  </thead>
+  <tbody>
   <% @libraries.each do |library| %>
-    <%= render library %>
-    <p>
-      <%= link_to "show", library %>
-    </p>
+    <tr>
+      <td class="p-2"><%= library.id %></td>
+      <td class="p-2"><%= library.name %></td>
+      <td class="p-2"><%= library.location %></td>
+      <td class="p-2"><%= library.year ? library.year : 2023 %></td>
+      <td class="p-2"><%= link_to 'Show', library %></td>
+      <td class="p-2"><%= link_to 'Edit', edit_library_path(library) %></td>
+      <td class="p-2"><%= link_to 'Destroy', library, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
   <% end %>
-</div>
+  </tbody>
+</table>
 
-<%= link_to "New library", new_library_path %>
+<%= link_to 'New Library', new_library_path %>
