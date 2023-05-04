@@ -38,7 +38,7 @@ class AddDeviseToAuthors < ActiveRecord::Migration[7.0]
     end
 
     # add_index :authors, :email,                unique: true
-    add_index :authors, :reset_password_token, unique: true
+    # add_index :authors, :reset_password_token, unique: true
     # add_index :authors, :confirmation_token,   unique: true
     # add_index :authors, :unlock_token,         unique: true
   end

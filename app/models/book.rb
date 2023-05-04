@@ -5,6 +5,7 @@ class Book < ApplicationRecord
 
   def self.add
     (1..10).each { |i|
+
       input = Book.new(title: "title #{i}",
                        description: "desc #{i}",
                        library_id: Library.find(i).id,
