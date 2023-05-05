@@ -4,13 +4,13 @@ class Book < ApplicationRecord
   has_many :genres
 
   def self.add
-    (1..10).each { |i|
+    (1..5).each { |i|
 
-      input = Book.new(title: "title #{i}",
-                       description: "desc #{i}",
-                       library_id: Library.find(i).id,
-                       author_id: Author.find(i).id,
-                       genre_id: Genre.find(i).id,
+      input = Book.new(title: "title #{i+2}",
+                       description: "desc #{i+2}",
+                       library_id: Library.find(2).id,
+                       author_id: Author.find(3).id,
+                       genre_id: Genre.find(2).id,
                        created_at: Time.now,
                        updated_at: Time.now)
       input.save

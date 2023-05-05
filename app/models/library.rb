@@ -9,4 +9,12 @@ class Library < ApplicationRecord
       ActiveRecord::Base.connection.execute(q)
     }
   end
+
+  def book_count
+    books.count
+  end
+
+  def genre_count
+    books.select(:genre_id).distinct.count
+  end
 end

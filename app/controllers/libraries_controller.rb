@@ -3,6 +3,26 @@ class LibrariesController < ApplicationController
 
   # GET /libraries or /libraries.json
   def index
+
+    @up = false
+    @up_genre = false
+
+    @libraries = @libraries.order(:name) if params[:sort] == "name"
+    if params[:sort] == "book_count"
+      @libraries = @libraries.sort_by { |library| library.books.count}
+      @up = true
+    end
+
+    if params[:sort] == "genre_count"
+      @libraries = @libraries.sort_by { |library| library.books.select(:genre_id).distinct.count }
+      @up_genre = false
+    end
+
+    if params[:sort] == "genre_count_desc"
+      @libraries = @libraries.sort_by { |library| library.books.select(:genre_id).distinct.count }.reverse
+      @up_genre = true
+    end
+
     @libraries = Library.page(params[:page] || 1).per(5)
   end
 

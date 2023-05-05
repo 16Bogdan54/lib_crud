@@ -5,20 +5,24 @@
 <table>
   <thead>
   <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Location</th>
-    <th>Year</th>
+    <th class="p-2 border-1 border-white">ID</th>
+    <th class="p-2 border-1 border-white">Name</th>
+    <th class="p-2 border-1 border-white">Location</th>
+    <th class="p-2 border-1 border-white">Year</th>
+    <th class="p-2 border-1 border-white">Books_Count</th>
+    <th class="p-2 border-1 border-white">Genre_Count</th>
   </tr>
   </thead>
   <tbody>
   <% @libraries.each do |library| %>
     <tr>
-      <td class="p-2"><%= library.id %></td>
-      <td class="p-2"><%= library.name %></td>
-      <td class="p-2"><%= library.location %></td>
-      <td class="p-2"><%= library.year ? library.year : 2023 %></td>
-      <td class="p-2"><%= link_to 'Show', library %></td>
+      <td class="p-2 border-1 border-white"><%= library.id %></td>
+      <td class="p-2 border-1 border-white"><%= library.name %></td>
+      <td class="p-2 border-1 border-white"><%= library.location %></td>
+      <td class="p-2 border-1 border-white"><%= library.year ? library.year : 2023 %></td>
+      <td class="p-2 border-1 border-white"><%= library.books.count %></td>
+      <td class="p-2 border-1 border-white"><%= library.books.select(:genre_id).distinct.count  %></td>
+      <td class="p-2 "><%= link_to 'Show', library %></td>
       <td class="p-2"><%= link_to 'Edit', edit_library_path(library) %></td>
       <td class="p-2"><%= link_to 'Destroy', library, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
