@@ -3,7 +3,7 @@ class UserRecordsController < ApplicationController
 
   # GET /user_records or /user_records.json
   def index
-    @user_records = UserRecord.all
+    @user_records = UserRecord.page(params[:page] || 1).per(5)
 
     respond_to do |format|
       format.html # Render the default HTML template
