@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
   belongs_to :library
-  belongs_to :authors
+  belongs_to :author
   has_many :genres
 
   def self.add
