@@ -2,13 +2,47 @@
 
 <h1>Users</h1>
 
-<div id="users" class="grid-container">
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Age</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+  <tbody>
   <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show", user %>
-    </p>
+    <tr>
+      <td class="p-2"><%= user.id %></td>
+      <td class="p-2"><%= user.name %></td>
+      <td class="p-2"><%= user.surname %></td>
+      <td class="p-2"><%= user.email %></td>
+      <td class="p-2"><%= link_to 'Show', user %></td>
+      <td class="p-2"><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td class="p-2"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
   <% end %>
-</div>
+  </tbody>
+</table>
+
+
+<%= paginate @users %>
 
 <%= link_to "New user", new_user_path %>
+
+<style>
+    table {
+        height: 200px;
+    }
+
+    .pagination {
+        width: 400px;
+    }
+
+    .pagination span {
+        padding: .4rem;
+    }
+
+</style>
