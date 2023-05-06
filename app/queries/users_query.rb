@@ -7,7 +7,7 @@ class UsersQuery
     @sort = sort
   end
 
-  def results_name
+  def results
     users = User.all
     users = users.where("concat(name, ' ', surname) LIKE ?", "%#{full_name}%") if full_name.present?
     users = users.where(age: age) if age.present?
