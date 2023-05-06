@@ -6,14 +6,14 @@
   <%= form_tag users_path method: :get do %>
     <div class="input-group">
       <%= text_field_tag :full_name, params[:full_name], class: "form-control", placeholder: "Full Name" %>
-      <%= hidden_field_tag :sort, params[:sort] || "asc" %>
+      <%= hidden_field_tag :sort, params[:sort_name] || "asc" %>
       <button class="btn btn-outline-secondary" type="submit">&#x1F50D;</button>
     </div>
   <% end %>
-  <% if params[:full_name] && params[:sort] == "asc" %>
-    <%= link_to "↓", url_for(request.params.merge({sort: "desc"})), class: " fs-5 btn btn-success" %>
+  <% if params[:sort_name] == "asc" %>
+    <%= link_to "↓", url_for(request.params.merge({sort_name: "desc"})), class: " fs-5 btn btn-success" %>
   <% else %>
-    <%= link_to "↑", url_for(request.params.merge({sort: "asc"})), class: "fs-5 btn btn-primary" %>
+    <%= link_to "↑", url_for(request.params.merge({sort_name: "asc"})), class: "fs-5 btn btn-primary" %>
   <% end %>
 </div>
 
@@ -21,14 +21,14 @@
   <%= form_tag users_path, method: :get do %>
     <div class="input-group">
       <%= text_field_tag :age, params[:age], class: "form-control", placeholder: "Age" %>
-      <%= hidden_field_tag :sort, params[:sort] || "asc" %>
+      <%= hidden_field_tag :sort_age, params[:sort_age] || "asc" %>
       <button class="btn btn-outline-secondary" type="submit">&#x1F50D;</button>
     </div>
   <% end %>
-  <% if params[:age] && params[:sort] == "asc" %>
-    <%= link_to "↓", url_for(request.params.merge({sort: "desc"})), class: "fs-5 btn btn-success" %>
+  <% if params[:sort_age] == "asc" %>
+    <%= link_to "↓", url_for(request.params.merge({sort_age: "desc"})), class: "fs-5 btn btn-success" %>
   <% else %>
-    <%= link_to "↑", url_for(request.params.merge({sort: "asc"})), class: "fs-5 btn btn-primary" %>
+    <%= link_to "↑", url_for(request.params.merge({sort_age: "asc"})), class: "fs-5 btn btn-primary" %>
   <% end %>
 </div>
 

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @query = UsersQuery.new(params[:full_name], params[:age], params[:sort])
+    @query = UsersQuery.new(params[:full_name], params[:age], params[:sort_name], params[:sort_age])
     @users = @query.results.page(params[:page] || 1).per(5)
   end
 
