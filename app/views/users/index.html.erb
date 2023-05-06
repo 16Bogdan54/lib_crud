@@ -16,9 +16,9 @@
         </div>
       <% end %>
       <% if params[:search] && params[:sort] == "asc" %>
-        <%= link_to "DESC", url_for(request.params.merge({sort: "desc"})), class: "text-secondary" %>
+        <%= link_to "↓", url_for(request.params.merge({sort: "desc"})), class: "fs-5 btn btn-success" %>
       <% else %>
-        <%= link_to "ASC", url_for(request.params.merge({sort: "asc"})), class: "text-secondary" %>
+        <%= link_to "↑", url_for(request.params.merge({sort: "asc"})), class: "fs-5 btn btn-primary" %>
       <% end %>
     </th>
     <th class="p-2 border-1 border-white">Age</th>
