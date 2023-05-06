@@ -3,7 +3,9 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.page(params[:page] || 1).per(5)
+    @query = UsersQuery.new(params[:search], params[:sort])
+    @users = @query.results_name.page(params[:page] || 1).per(5)
+
   end
 
   # GET /users/1 or /users/1.json
