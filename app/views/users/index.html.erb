@@ -11,8 +11,14 @@
       <%= form_tag users_path, method: :get do %>
         <div class="input-group">
           <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
+          <%= hidden_field_tag :sort, params[:sort] || "asc" %>
           <button class="btn btn-outline-secondary" type="submit">&#x1F50D;</button>
         </div>
+      <% end %>
+      <% if params[:search] && params[:sort] == "asc" %>
+        <%= link_to "DESC", url_for(request.params.merge({sort: "desc"})), class: "text-secondary" %>
+      <% else %>
+        <%= link_to "ASC", url_for(request.params.merge({sort: "asc"})), class: "text-secondary" %>
       <% end %>
     </th>
     <th class="p-2 border-1 border-white">Age</th>
