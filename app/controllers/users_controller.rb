@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   def index
     @query = UsersQuery.new(params[:full_name], params[:age], params[:sort])
     @users = @query.results.page(params[:page] || 1).per(5)
-
   end
 
   # GET /users/1 or /users/1.json
