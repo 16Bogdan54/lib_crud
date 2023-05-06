@@ -9,21 +9,27 @@
     <th class="p-2 border-1 border-white">Full Name</th>
     <th class="p-2 border-1 border-white">Age</th>
     <th class="p-2 border-1 border-white">Email</th>
+    <th class="p-2 border-1 border-white">Card Number</th>
+    <th class="p-2 border-1 border-white">Card</th>
   </tr>
   </thead>
   <tbody>
   <% @users.each do |user| %>
     <tr>
       <td class="p-2 border-1 border-white"><%= user.id %></td>
-      <td class="p-2 border-1 border-white">
-        <%= user.name ? user.name : "name" + " "%>
-        <%= user.surname ? user.surname : "surname" %>
-      </td>
+      <td class="p-2 border-1 border-white"><%= link_to user.name ? user.name + " " + user.surname : "name surname", user %></td>
       <td class="p-2 border-1 border-white"><%= user.age ? user.age : 10 %></td>
       <td class="p-2 border-1 border-white"><%= user.email %></td>
-      <td class="p-2"><%= link_to 'Show', user %></td>
-      <td class="p-2"><%= link_to 'Edit', edit_user_path(user) %></td>
-      <td class="p-2"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td class="p-2 border-1 border-white">
+        <% if user.user_record %>
+          <%= user.user_record.id %>
+        <% end %>
+      </td>
+      <td class="p-2 border-1 border-white">
+        <%= link_to 'Card', user.user_record %>
+      </td>
+      <td class="p-2"><%= link_to 'Edit User', edit_user_path(user) %></td>
+      <td class="p-2"><%= link_to 'Destroy User', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </tbody>
