@@ -2,6 +2,22 @@
 
 <h1>Libraries</h1>
 
+<div class="w-50 d-flex my-2">
+  <%= form_tag libraries_path, method: :get do %>
+    <div class="input-group">
+      <%= text_field_tag :search_lib_name, params[:search_lib_name], class: "form-control", placeholder: "Library Name" %>
+      <%= hidden_field_tag :sort_lib_name, params[:sort_lib_name] || "asc" %>
+      <button class="btn btn-outline-secondary" type="submit">&#x1F50D;</button>
+    </div>
+  <% end %>
+  <% if params[:sort_lib_name] == "asc" %>
+    <%= link_to "↓", url_for(request.params.merge({sort_lib_name: "desc"})), class: " fs-5 btn btn-success" %>
+  <% else %>
+    <%= link_to "↑", url_for(request.params.merge({sort_lib_name: "asc"})), class: "fs-5 btn btn-primary" %>
+  <% end %>
+</div>
+
+
 <table>
   <thead>
   <tr>
