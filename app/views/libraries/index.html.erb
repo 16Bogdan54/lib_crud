@@ -23,7 +23,14 @@
   <tr>
     <th class="p-2 border-1 border-white">ID</th>
     <th class="p-2 border-1 border-white">Name</th>
-    <th class="p-2 border-1 border-white">Location</th>
+    <th class="p-2 border-1 border-white">
+      Location
+      <% if params[:sort_location] == "asc" %>
+        <%= link_to "↓", url_for(request.params.merge({sort_location: "desc"})), class: " fs-5 btn btn-success" %>
+      <% else %>
+        <%= link_to "↑", url_for(request.params.merge({sort_location: "asc"})), class: "fs-5 btn btn-primary" %>
+      <% end %>
+    </th>
     <th class="p-2 border-1 border-white">Year</th>
     <th class="p-2 border-1 border-white">Books_Count</th>
     <th class="p-2 border-1 border-white">Genre_Count</th>

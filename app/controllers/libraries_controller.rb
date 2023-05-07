@@ -3,7 +3,7 @@ class LibrariesController < ApplicationController
 
   # GET /libraries or /libraries.json
   def index
-    @query = LibrariesQuery.new(params[:search_lib_name], params[:sort_lib_name])
+    @query = LibrariesQuery.new(params[:search_lib_name], params[:sort_lib_name], params[:sort_location])
     @libraries = @query.results.page(params[:page] || 1).per(5)
   end
 
