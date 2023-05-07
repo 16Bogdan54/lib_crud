@@ -32,8 +32,22 @@
       <% end %>
     </th>
     <th class="p-2 border-1 border-white">Year</th>
-    <th class="p-2 border-1 border-white">Books_Count</th>
-    <th class="p-2 border-1 border-white">Genre_Count</th>
+    <th class="p-2 border-1 border-white">
+      Books_Count
+      <% if params[:sort_books] == "asc" %>
+        <%= link_to "↓", url_for(request.params.merge({sort_books: "desc"})), class: " fs-5 btn btn-success" %>
+      <% else %>
+        <%= link_to "↑", url_for(request.params.merge({sort_books: "asc"})), class: "fs-5 btn btn-primary" %>
+      <% end %>
+    </th>
+    <th class="p-2 border-1 border-white">
+      Genre_Count
+      <% if params[:sort_genre] == "asc" %>
+        <%= link_to "↓", url_for(request.params.merge({sort_genre: "desc"})), class: " fs-5 btn btn-success" %>
+      <% else %>
+        <%= link_to "↑", url_for(request.params.merge({sort_genre: "asc"})), class: "fs-5 btn btn-primary" %>
+      <% end %>
+    </th>
   </tr>
   </thead>
   <tbody>
