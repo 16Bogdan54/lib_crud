@@ -1,8 +1,8 @@
 class UsersQuery
-  attr_accessor :full_name, :age, :sort_name, :sort_age
+  attr_accessor :search_full_name, :age, :sort_name, :sort_age
 
-  def initialize(full_name = nil, age = nil, sort_name = nil, sort_age = nil)
-    @full_name = full_name
+  def initialize(search_full_name = nil, age = nil, sort_name = nil, sort_age = nil)
+    @search_full_name = search_full_name
     @age = age
     @sort_name = sort_name
     @sort_age = sort_age
@@ -11,7 +11,7 @@ class UsersQuery
   def results
     users = User.all
 
-    users = users.where("concat(name, ' ', surname) LIKE ?", "%#{full_name}%") if full_name.present?
+    users = users.where("concat(name, ' ', surname) LIKE ?", "%#{search_full_name}%") if search_full_name.present?
     users = users.where(age: age) if age.present?
 
     if sort_name.present?
