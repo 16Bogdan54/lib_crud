@@ -34,14 +34,20 @@ class LibrariesQuery
 
     if sort_books.present?
       direction = %w[asc desc].include?(sort_books) ? sort_books : 'asc'
-      libraries = libraries.order(Arel.sql("books_count #{direction}"))
+      libraries = libraries.select('libraries.*, COUNT(books.id) AS books_count')
+                           .left_joins(:books)
+                           .group('libraries.id')
+                           .order(Arel.sql("books_count #{direction}"))
     else
       libraries = libraries.order(created_at: :asc)
     end
 
     if sort_genre.present?
       direction = %w[asc desc].include?(sort_genre) ? sort_genre : 'asc'
-      libraries = libraries.order(Arel.sql("genre_count #{direction}"))
+      libraries = libraries.select('libraries.*, COUNT(books.genre_id) AS genre_count')
+                           .left_joins(:books)
+                           .group('libraries.id')
+                           .order(Arel.sql("genre_count #{direction}"))
     else
       libraries = libraries.order(created_at: :asc)
     end
