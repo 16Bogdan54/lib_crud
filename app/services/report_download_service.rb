@@ -39,6 +39,7 @@ class ReportDownloadService
         }
       )
       font "Roboto", size: 14
+      fill_color [255, 52, 65, 0]
       text 'User', align: :center
       text user.id.to_s
       text (user.name || "no name ") + (user.surname || "no surname")
@@ -57,7 +58,9 @@ class ReportDownloadService
         }
       )
       font "Roboto", size: 14
+      fill_color [100, 50, 0, 0]
       text 'Library', align: :center
+      image "#{Rails.root}/app/assets/images/linus.jpg", :width => 450
       text library.id.to_s
       text library.name
       text library.location
