@@ -10,6 +10,18 @@ class Library < ApplicationRecord
     }
   end
 
+  def self.to_csv
+    attributes = %w{name location genre_count user_names}
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+      all.each do |library|
+        @users = User.joins(:user_record).where(reader_cards: {library_id: library.id})
+        csv << [library.name, library.books.count, library.books.select(:genre_id).distinct.count, @users.each do |user| user.name end]
+      end
+    end
+  end
+
+
   def book_count
     books.count
   end

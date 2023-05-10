@@ -74,3 +74,7 @@ group :test do
 end
 
 gem 'kaminari'
+gem 'pdfkit'
+gem 'prawn'
+gem 'prawn-table'
+

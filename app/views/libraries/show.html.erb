@@ -3,6 +3,7 @@
 <%= render @library %>
 
 <div>
+  <%= link_to "Download PDF report", lib_report_path %>
   <%= link_to "Edit this library", edit_library_path(@library) %> |
   <%= link_to "Back to libraries", libraries_path %>
 
