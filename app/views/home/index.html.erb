@@ -5,6 +5,7 @@
 <div class="d-flex">
   <% if current_user %>
     <p>Welcome, <%= current_user.email %>!</p>
+    <a class="btn btn-primary m-2" href="/admin/login">Enter Admin Mode</a>
     <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-primary m-2" %>
   <% else %>
   <a class="btn btn-primary m-2" href="/users/sign_up">Sign Up</a>
