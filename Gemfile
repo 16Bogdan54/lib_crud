@@ -83,3 +83,5 @@ gem 'draper'
 gem 'pundit'
 gem 'sassc'
 gem 'activeadmin_blaze_theme'
+
+gem "image_processing", "~> 1.0"

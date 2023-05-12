@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :user_record
+  has_one_attached :image
 
   def self.add
     (1..10).each { |i|
