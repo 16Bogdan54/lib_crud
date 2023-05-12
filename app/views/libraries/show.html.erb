@@ -1,5 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
+<%= image_tag(@library.image) if @library.image.attached? %>
 <%= render @library %>
 
 <div>

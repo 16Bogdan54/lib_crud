@@ -1,6 +1,7 @@
 class Library < ApplicationRecord
   has_many :books
   has_many :user_records
+  has_one_attached :image
 
   def self.add
     (1..10).each { |i|

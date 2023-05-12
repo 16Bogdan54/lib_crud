@@ -23,6 +23,7 @@ class LibrariesController < ApplicationController
   # POST /libraries or /libraries.json
   def create
     @library = Library.new(library_params)
+    @library.image.attach(params[:library][:image])
 
     respond_to do |format|
       if @library.save
@@ -39,6 +40,7 @@ class LibrariesController < ApplicationController
   def update
     respond_to do |format|
       if @library.update(library_params)
+        @library.image.attach(params[:library][:image])
         format.html { redirect_to library_url(@library), notice: "Library was successfully updated." }
         format.json { render :show, status: :ok, location: @library }
       else
@@ -66,6 +68,6 @@ class LibrariesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def library_params
-      params.require(:library).permit(:name, :location)
+      params.require(:library).permit(:name, :location, :image)
     end
 end
